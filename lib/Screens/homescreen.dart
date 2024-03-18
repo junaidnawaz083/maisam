@@ -12,7 +12,7 @@ class HomeScreen extends GetView<RecordController> {
     Get.lazyPut(() => RecordController());
     return Scaffold(
       appBar: AppBar(
-        title: Text('Getx Example'),
+        title: const Text('Getx Example'),
         centerTitle: true,
       ),
       body: SizedBox(
@@ -24,7 +24,7 @@ class HomeScreen extends GetView<RecordController> {
               SizedBox(
                 height: Get.height * 0.06,
               ),
-              Text(
+              const Text(
                 'Welcome to Studant Record',
               ),
               SizedBox(
@@ -45,10 +45,10 @@ class HomeScreen extends GetView<RecordController> {
               ElevatedButton(
                 onPressed: () {
                   Get.to(
-                    AddNewRecord(),
+                    const AddNewRecord(),
                   );
                 },
-                child: Text('Add New Record'),
+                child: const Text('Add New Record'),
               )
             ],
           )

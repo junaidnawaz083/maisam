@@ -9,14 +9,14 @@ class AddNewRecord extends GetView<RecordController> {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController name_txt = TextEditingController();
-    TextEditingController email_txt = TextEditingController();
-    TextEditingController phone_txt = TextEditingController();
+    TextEditingController nameTxt = TextEditingController();
+    TextEditingController emailTxt = TextEditingController();
+    TextEditingController phoneTxt = TextEditingController();
     Get.lazyPut(() => RecordController());
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add new Record'),
+        title: const Text('Add new Record'),
         centerTitle: true,
       ),
       body: SizedBox(
@@ -30,12 +30,12 @@ class AddNewRecord extends GetView<RecordController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Enter Name'),
-                  SizedBox(
+                  const Text('Enter Name'),
+                  const SizedBox(
                     height: 10,
                   ),
                   TextFormField(
-                    controller: name_txt,
+                    controller: nameTxt,
                     validator: (txt) {
                       if (txt != null || txt != '') {
                         return 'Name is Empty';
@@ -43,15 +43,15 @@ class AddNewRecord extends GetView<RecordController> {
                       return null;
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
-                  Text('Enter Email'),
-                  SizedBox(
+                  const Text('Enter Email'),
+                  const SizedBox(
                     height: 10,
                   ),
                   TextFormField(
-                    controller: email_txt,
+                    controller: emailTxt,
                     validator: (txt) {
                       if (txt != null || txt != '') {
                         return 'Email is Empty';
@@ -59,30 +59,30 @@ class AddNewRecord extends GetView<RecordController> {
                       return null;
                     },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
-                  Text('Enter Phone Number'),
-                  SizedBox(
+                  const Text('Enter Phone Number'),
+                  const SizedBox(
                     height: 10,
                   ),
                   TextFormField(
-                    controller: phone_txt,
+                    controller: phoneTxt,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   ElevatedButton(
                     onPressed: () {
                       UserModel model = UserModel(
-                        name: name_txt.text,
-                        email: email_txt.text,
-                        phone: phone_txt.text.isEmpty ? '' : phone_txt.text,
+                        name: nameTxt.text,
+                        email: emailTxt.text,
+                        phone: phoneTxt.text.isEmpty ? '' : phoneTxt.text,
                       );
                       controller.allRecord.add(model);
                       Get.back();
                     },
-                    child: Text('Add Record'),
+                    child: const Text('Add Record'),
                   ),
                 ],
               ),
